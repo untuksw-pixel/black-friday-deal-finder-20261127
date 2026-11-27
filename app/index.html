@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bargain Beacon — Black Friday Deal Finder 2026</title>
+<meta name="description" content="14 real Black Friday 2026 deals, checked 27 November 2026 at Amazon, Best Buy, Target and Walmart — with an honest verdict on whether each one is really a deal.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="main.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <p class="eyebrow">Black Friday &middot; 27&ndash;30 November 2026</p>
+    <h1>Bargain <span class="beacon">Beacon</span></h1>
+    <p class="tagline">Real Black Friday deals, checked by hand today — sale price, usual price, and an honest verdict on whether each one is actually a bargain.</p>
+  </div>
+</header>
+
+<section class="stats-bar" aria-label="Deal totals">
+  <div class="stat"><strong id="stat-deals">&ndash;</strong><span>verified deals</span></div>
+  <div class="stat"><strong id="stat-stores">&ndash;</strong><span>stores</span></div>
+  <div class="stat"><strong id="stat-saving">&ndash;</strong><span>total savings</span></div>
+  <div class="stat"><strong id="stat-best">&ndash;</strong><span>deepest discount</span></div>
+  <div class="stat"><strong id="stat-lows">&ndash;</strong><span>new all-time lows</span></div>
+</section>
+
+<section class="controls" aria-label="Search and filter deals">
+  <div class="controls-row">
+    <div class="search-box">
+      <input id="search" type="search" placeholder="Search deals — try &quot;AirPods&quot;, &quot;TV&quot;, &quot;Dyson&quot;&hellip;" aria-label="Search deals">
+    </div>
+    <label for="sort">Sort</label>
+    <select id="sort"></select>
+    <label for="min-discount">Min. discount</label>
+    <select id="min-discount">
+      <option value="0">Any discount</option>
+      <option value="20">20% off or more</option>
+      <option value="30">30% off or more</option>
+      <option value="40">40% off or more</option>
+      <option value="50">50% off or more</option>
+    </select>
+    <label for="verdict-filter">Verdict</label>
+    <select id="verdict-filter">
+      <option value="All">All verdicts</option>
+      <option value="new-low">New low only</option>
+      <option value="strong">Strong price only</option>
+      <option value="routine">Routine sale only</option>
+    </select>
+    <button type="button" class="clear-button" id="clear-filters">Clear filters</button>
+  </div>
+  <div class="chip-row"><span class="row-label">Category:</span><span id="category-chips"></span></div>
+  <div class="chip-row"><span class="row-label">Store:</span><span id="store-chips"></span></div>
+  <p id="result-count" aria-live="polite"></p>
+</section>
+
+<main>
+  <div class="deal-grid" id="deal-grid"></div>
+  <p class="empty-note" id="no-results" hidden>No deals match those filters. Try clearing a filter or searching for something else.</p>
+
+  <section class="compare-section" id="compare">
+    <h2>Same product, different stores</h2>
+    <p class="section-sub">One product can cost very different amounts depending on where you buy it. Prices below were all read on 27 November 2026.</p>
+    <div id="compare-list"></div>
+  </section>
+
+  <section class="method-section" id="method">
+    <h2>How these deals were checked</h2>
+    <p id="checked-note"></p>
+    <div class="legend" aria-label="Verdict key">
+      <span class="verdict verdict-new-low">NEW LOW</span>
+      <span class="verdict verdict-strong">STRONG PRICE</span>
+      <span class="verdict verdict-routine">ROUTINE SALE</span>
+    </div>
+    <p><strong>NEW LOW</strong> — the lowest price the deal trackers have ever recorded for this product. <strong>STRONG PRICE</strong> — a deep cut, usually 40% or more, at or near the lowest tracked price. <strong>ROUTINE SALE</strong> — a genuine discount, but the same product is cheaper somewhere else, so it is not the deal it looks like. Each card says what the verdict is based on, and every card links straight to the product at its store.</p>
+    <p>Prices move all day during Black Friday. The sale price on the store page at checkout is the one that counts — if it has moved since this page was checked, the deal has moved too.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Bargain Beacon is an independent deal finder. It is not affiliated with Amazon, Best Buy, Target, Walmart, Apple, Sony, Dyson, or any brand or store named here. Product names belong to their owners. All prices in US dollars, as shown by each store on 27 November 2026.</p>
+</footer>
+</body>
+</html>

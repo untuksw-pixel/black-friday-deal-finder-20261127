@@ -1,0 +1,277 @@
+/* Bargain Beacon — Black Friday 2026. Warm paper background, dark ink type,
+   amber for savings, green/blue/grey verdict chips. System fonts only, no
+   webfonts, so the first load stays tiny and works fully offline. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #faf6ee;
+  color: #1d2733;
+  line-height: 1.45;
+}
+
+a { color: #0b5cad; }
+
+.site-header {
+  background: #14213d;
+  color: #fff;
+  padding: 28px 20px 22px;
+  border-bottom: 6px solid #f4a300;
+}
+
+.header-inner { max-width: 1180px; margin: 0 auto; }
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffd166;
+  font-weight: 700;
+}
+
+.site-header h1 { margin: 0; font-size: 40px; line-height: 1.05; }
+.site-header h1 .beacon { color: #ffd166; }
+.tagline { margin: 8px 0 0; font-size: 17px; color: #dbe4f0; max-width: 720px; }
+
+.stats-bar {
+  max-width: 1180px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid #e3dcc9;
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.stat strong { display: block; font-size: 26px; color: #14213d; }
+.stat span { font-size: 13px; color: #5a6b7d; }
+
+.controls {
+  max-width: 1180px;
+  margin: 18px auto 0;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #e3dcc9;
+  border-radius: 12px;
+}
+
+.controls-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+.search-box { flex: 1 1 260px; }
+.search-box input {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 16px;
+  border: 2px solid #14213d;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.controls label { font-size: 13px; font-weight: 700; color: #5a6b7d; }
+.controls select {
+  padding: 10px 8px;
+  font-size: 15px;
+  border: 2px solid #c9c2ae;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
+.chip-row .row-label { font-size: 13px; font-weight: 700; color: #5a6b7d; margin-right: 2px; }
+
+.chip {
+  padding: 7px 13px;
+  font-size: 14px;
+  border: 1.5px solid #c9c2ae;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  color: #1d2733;
+}
+.chip:hover { border-color: #14213d; }
+.chip.active { background: #14213d; color: #fff; border-color: #14213d; }
+
+.clear-button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1.5px solid #b3261e;
+  border-radius: 8px;
+  background: #fff;
+  color: #b3261e;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#result-count { margin: 14px 0 0; font-weight: 700; font-size: 15px; }
+
+main { max-width: 1180px; margin: 0 auto; padding: 0 20px 30px; }
+
+.deal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.deal-card {
+  background: #fff;
+  border: 1px solid #e3dcc9;
+  border-top: 5px solid #f4a300;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+
+.store-chip {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: #eef2f7;
+  color: #14213d;
+}
+.store-amazon { background: #ffe9b0; color: #7a4d00; }
+.store-best-buy { background: #dbeafe; color: #0b3d91; }
+.store-target { background: #fde2e2; color: #a31621; }
+.store-walmart { background: #d9ecff; color: #004f9e; }
+
+.verdict {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.verdict-new-low { background: #137a3f; color: #fff; }
+.verdict-strong { background: #0b5cad; color: #fff; }
+.verdict-routine { background: #6b7280; color: #fff; }
+
+.deal-name { margin: 12px 0 4px; font-size: 19px; line-height: 1.25; }
+.deal-detail { margin: 0; font-size: 14px; color: #45566a; }
+.deal-tag { margin: 8px 0 0; font-size: 13px; font-weight: 700; color: #8a5a00; }
+
+.price-row { display: flex; align-items: baseline; gap: 10px; margin-top: 12px; }
+.sale-price { font-size: 30px; font-weight: 900; color: #b3261e; }
+.usual-price { font-size: 16px; color: #6b7280; }
+.pct-badge {
+  margin-left: auto;
+  background: #b3261e;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.saving-line { margin: 6px 0 0; font-weight: 700; font-size: 15px; }
+.evidence { margin: 8px 0 0; font-size: 14px; color: #33465c; flex: 1; }
+.checked-line { margin: 10px 0 0; font-size: 12.5px; color: #6b7280; }
+
+.buy-button {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  padding: 11px;
+  background: #14213d;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.buy-button:hover { background: #0b5cad; }
+
+.empty-note {
+  grid-column: 1 / -1;
+  background: #fff;
+  border: 1px dashed #c9c2ae;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.compare-section { margin-top: 34px; }
+.compare-section h2, .method-section h2 { font-size: 26px; margin: 0 0 4px; }
+.section-sub { margin: 0 0 14px; color: #45566a; font-size: 15px; }
+
+.compare-block {
+  background: #fff;
+  border: 1px solid #e3dcc9;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.compare-block h3 { margin: 0 0 10px; font-size: 19px; }
+
+.compare-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.compare-table th, .compare-table td {
+  text-align: left;
+  padding: 9px 8px;
+  border-bottom: 1px solid #eee7d6;
+}
+.compare-table th { color: #5a6b7d; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+.compare-table .price-cell { font-weight: 900; font-size: 18px; }
+.compare-table tr.best-row td { background: #fdf3d7; }
+.best-tag {
+  background: #137a3f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+.store-link { font-weight: 700; white-space: nowrap; }
+.store-link.muted { color: #6b7280; font-weight: 400; }
+.compare-verdict { margin: 10px 0 0; font-weight: 700; }
+
+.method-section {
+  margin-top: 30px;
+  background: #14213d;
+  color: #e8eef7;
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.method-section h2 { color: #ffd166; }
+.method-section p { font-size: 15px; }
+.method-section .legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+.method-section .legend .verdict { font-size: 12px; }
+
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 30px;
+  font-size: 13px;
+  color: #5a6b7d;
+}
+
+@media (max-width: 900px) {
+  .deal-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+  .site-header h1 { font-size: 30px; }
+}
+
+@media (max-width: 600px) {
+  .deal-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .site-header h1 { font-size: 26px; }
+  .sale-price { font-size: 26px; }
+  .compare-table { font-size: 13px; }
+  .compare-table th:nth-child(3), .compare-table td:nth-child(3) { display: none; }
+}
